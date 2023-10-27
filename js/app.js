@@ -8,9 +8,19 @@ Write a function called sum() that takes in two numbers as arguments and then re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
-function sum(a, b) { //eslint-disable-line
-  let total = a + b;
-  return [total, `The sum of ${a} and ${b} is ${total}.`];
+// referenced chatGPT for logic to be able to use 2 or 3 parameters
+function sum(a, b, c) {
+  //eslint-disable-line
+  let total = 0;
+  let sumOutput = [];
+  if (typeof c === "number") {
+    total = a + b + c;
+    sumOutput.push(total, `${a} and ${b} and ${c} sum to ${total}.`); // problem 3 expected output => // 4 and 7 and 5 sum to 16.
+  } else {
+    total = a + b;
+    sumOutput.push(total, `The sum of ${a} and ${b} is ${total}.`);
+  }
+  return sumOutput;
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -28,9 +38,17 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function multiply(a, b) { //eslint-disable-line
-  let product = a * b;
-  return [product, `The product of ${a} and ${b} is ${product}.`]
+function multiply(a, b, c) {
+  let product = 0;
+  let productOutput = [];
+  if (typeof c === "number") {
+    product = a * b * c;
+    productOutput.push(product, `The product of ${a} and ${b} and ${c} is ${product}.`); // Expected output => The product of 4 and 7 and 5 is 140.
+  } else {
+    product = a * b;
+    productOutput.push(product, `The product of ${a} and ${b} is ${product}.`);
+  }
+  return productOutput;
 }
 // expected output multply (5, 9) => [45, `The product of 5 and 9 is 45.`]
 
@@ -52,11 +70,20 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) {
-  //eslint-disable-line
+  let sumAndMultiplyOutput = [];
+  let add = sum(a, b, c)[0];
+  let addString = sum(a, b, c)[1];
+  let product = multiply(a, b, c)[0];
+  let productString = multiply (a, b, c)[1];
+  sumAndMultiplyOutput.push(add, product, addString, productString);
+//   console.log(sumAndMultiplyOutput);
+  return sumAndMultiplyOutput;
 }
 
+// expected output sumAndMultiply(4, 7, 5) [16, 140, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.']
+
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
