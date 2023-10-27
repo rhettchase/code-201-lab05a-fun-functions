@@ -43,7 +43,10 @@ function multiply(a, b, c) {
   let productOutput = [];
   if (typeof c === "number") {
     product = a * b * c;
-    productOutput.push(product, `The product of ${a} and ${b} and ${c} is ${product}.`); // Expected output => The product of 4 and 7 and 5 is 140.
+    productOutput.push(
+      product,
+      `The product of ${a} and ${b} and ${c} is ${product}.`
+    ); // Expected output => The product of 4 and 7 and 5 is 140.
   } else {
     product = a * b;
     productOutput.push(product, `The product of ${a} and ${b} is ${product}.`);
@@ -53,7 +56,7 @@ function multiply(a, b, c) {
 // expected output multply (5, 9) => [45, `The product of 5 and 9 is 45.`]
 
 // Here is the test for multiply(); uncomment it to run it
-testMultiply(5,9);
+testMultiply(5, 9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -74,16 +77,16 @@ function sumAndMultiply(a, b, c) {
   let add = sum(a, b, c)[0];
   let addString = sum(a, b, c)[1];
   let product = multiply(a, b, c)[0];
-  let productString = multiply (a, b, c)[1];
+  let productString = multiply(a, b, c)[1];
   sumAndMultiplyOutput.push(add, product, addString, productString);
-//   console.log(sumAndMultiplyOutput);
+  //   console.log(sumAndMultiplyOutput);
   return sumAndMultiplyOutput;
 }
 
 // expected output sumAndMultiply(4, 7, 5) [16, 140, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.']
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -101,12 +104,21 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
-  //eslint-disable-line
+  let sumArrayOutput = [];
+  let a = sumArr[0];
+  let b = sumArr[1];
+  let c = sumArr[2];
+  let add = sum(a, b, c)[0];
+  let message = `${a},${b},${c} was passed in as an array of numbers, and ${add} is their sum.`;
+  sumArrayOutput.push(add, message);
+  return sumArrayOutput;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
+
+// expected output sumArray([2, 3, 4]) => [9, '2,3,4 was passed in as an array of numbers, and 9 is their sum.']
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
