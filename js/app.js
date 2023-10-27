@@ -117,7 +117,6 @@ function sumArray(sumArr) {
 // Here is the test for sumArray(); uncomment it to run it
 
 testSumArray(testArray);
-
 // expected output sumArray([2, 3, 4]) => [9, '2,3,4 was passed in as an array of numbers, and 9 is their sum.']
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -133,12 +132,20 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
+
 function multiplyArray(multArr) {
-  //eslint-disable-line
+  let multiplyArrayOutput = [];
+  let a = multArr[0];
+  let b = multArr[1];
+  let c = multArr[2];
+  let product = multiply(a, b, c)[0];
+  let message = `The numbers ${a},${b},${c} have a product of ${product}.`;
+  multiplyArrayOutput.push(product, message);
+  return multiplyArrayOutput;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
