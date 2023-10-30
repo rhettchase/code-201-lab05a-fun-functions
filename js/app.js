@@ -141,7 +141,7 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-// let testArray = [2, 3, 4]; 
+// let testArray = [2, 3, 4];
 
 function multiplyArray(multArr) {
   let multiplyArrayOutput = [];
@@ -152,7 +152,7 @@ function multiplyArray(multArr) {
   }
   let message = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product}.`;
   multiplyArrayOutput.push(product, message);
-  console.log(multiplyArrayOutput);
+  // console.log(multiplyArrayOutput);
   return multiplyArrayOutput;
 }
 
@@ -181,10 +181,19 @@ Test this function by hand in the console to get it working, and when you think 
 let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
-  //eslint-disable-line
+  let multiplyArrayOutput = [];
+  let product = 1;
+  for (let i = 0; i < dynamicArray.length; i++) {
+    product = multiply(product, dynamicArray[i])[0];
+    console.log(product);
+  }
+  // let message = `
+  multiplyArrayOutput.push(product, message);
+  console.log(multiplyArrayOutput);
+  return multiplyArrayOutput;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
