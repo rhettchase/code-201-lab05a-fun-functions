@@ -108,9 +108,11 @@ function sumArray(sumArr) {
   let a = sumArr[0];
   let b = sumArr[1];
   let c = sumArr[2];
-  let add = sum(a, b, c)[0];
-  let message = `${a},${b},${c} was passed in as an array of numbers, and ${add} is their sum.`;
-  sumArrayOutput.push(add, message);
+  let workingSum = sum(a, b)[0];
+  let totalSum = sum(workingSum, c)[0];
+  // let add = sum(a, b, c)[0];
+  let message = `${a},${b},${c} was passed in as an array of numbers, and ${totalSum} is their sum.`;
+  sumArrayOutput.push(totalSum, message);
   return sumArrayOutput;
 }
 
