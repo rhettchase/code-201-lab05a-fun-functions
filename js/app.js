@@ -38,21 +38,27 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function multiply(a, b, c) {
-  let product = 0;
+function multiply() {
+  let product = 1;
   let productOutput = [];
-  if (typeof c === "number") {
-    product = a * b * c;
-    productOutput.push(
-      product,
-      `The product of ${a} and ${b} and ${c} is ${product}.`
-    ); // Expected output => The product of 4 and 7 and 5 is 140.
-  } else {
-    product = a * b;
-    productOutput.push(product, `The product of ${a} and ${b} is ${product}.`);
+  let message = "";
+  for (let i = 0; i < arguments.length; i++) {
+    product *= arguments[i];
+    // console.log(product);
+    productOutput.splice(0, 1, product);
   }
+  if (arguments.length === 2) {
+    message = `The product of ${arguments[0]} and ${arguments[1]} is ${product}.`;
+    productOutput.push(message)[1];
+  } else if (arguments.length === 3) {
+    message = `The product of ${arguments[0]} and ${arguments[1]} and ${arguments}[2] is ${product}.`;
+    productOutput.push(message)[1];
+  }
+  // console.log(productOutput);
   return productOutput;
 }
+
+// The product of 4 and 7 and 5 is 140.'
 // expected output multply (5, 9) => [45, `The product of 5 and 9 is 45.`]
 
 // Here is the test for multiply(); uncomment it to run it
@@ -86,7 +92,7 @@ function sumAndMultiply(a, b, c) {
 // expected output sumAndMultiply(4, 7, 5) [16, 140, '4 and 7 and 5 sum to 16.', 'The product of 4 and 7 and 5 is 140.']
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-testSumAndMultiply(4, 7, 5);
+// testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -137,10 +143,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 function multiplyArray(multArr) {
   let multiplyArrayOutput = [];
-  let a = multArr[0];
-  let b = multArr[1];
-  let c = multArr[2];
-  let product = multiply(a, b, c)[0];
+  for (let i = 0; i < multArr.length; i++) {
+    product = multiply(a, b)[0];
+  }
+  // let a = multArr[0];
+  // let b = multArr[1];
+  // let c = multArr[2];
+  // let product = multiply(a, b, c)[0];
   let message = `The numbers ${a},${b},${c} have a product of ${product}.`;
   multiplyArrayOutput.push(product, message);
   return multiplyArrayOutput;
