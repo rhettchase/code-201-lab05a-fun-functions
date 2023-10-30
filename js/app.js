@@ -24,7 +24,7 @@ function sum(a, b, c) {
 }
 
 // Here is the test for sum(); uncomment it to run it
-testSum(4, 7);
+// testSum(4, 7);
 // expected output sum (4, 7) => [11, 'The sum of 4 and 7 is 11.']
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -42,19 +42,20 @@ function multiply() {
   let product = 1;
   let productOutput = [];
   let message = "";
+  let argumentsArray = [];
   for (let i = 0; i < arguments.length; i++) {
-    product *= arguments[i];
-    // console.log(product);
+    argumentsArray.push(arguments[i]);
+    product *= argumentsArray[i];
     productOutput.splice(0, 1, product);
+    // console.log(argumentsArray);
   }
-  if (arguments.length === 2) {
-    message = `The product of ${arguments[0]} and ${arguments[1]} is ${product}.`;
+  if (argumentsArray.length === 2) {
+    message = `The product of ${argumentsArray[0]} and ${argumentsArray[1]} is ${product}.`;
     productOutput.push(message)[1];
-  } else if (arguments.length === 3) {
-    message = `The product of ${arguments[0]} and ${arguments[1]} and ${arguments}[2] is ${product}.`;
+  } else if (argumentsArray.length === 3) {
+    message = `The product of ${argumentsArray[0]} and ${argumentsArray[1]} and ${arguments}[2] is ${product}.`;
     productOutput.push(message)[1];
   }
-  // console.log(productOutput);
   return productOutput;
 }
 
@@ -124,7 +125,7 @@ function sumArray(sumArr) {
 
 // Here is the test for sumArray(); uncomment it to run it
 
-testSumArray(testArray);
+// testSumArray(testArray);
 // expected output sumArray([2, 3, 4]) => [9, '2,3,4 was passed in as an array of numbers, and 9 is their sum.']
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -140,18 +141,18 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
+// let testArray = [2, 3, 4]; 
 
 function multiplyArray(multArr) {
   let multiplyArrayOutput = [];
+  let product = 1;
   for (let i = 0; i < multArr.length; i++) {
-    product = multiply(a, b)[0];
+    product = multiply(product, multArr[i])[0];
+    console.log(product);
   }
-  // let a = multArr[0];
-  // let b = multArr[1];
-  // let c = multArr[2];
-  // let product = multiply(a, b, c)[0];
-  let message = `The numbers ${a},${b},${c} have a product of ${product}.`;
+  let message = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${product}.`;
   multiplyArrayOutput.push(product, message);
+  console.log(multiplyArrayOutput);
   return multiplyArrayOutput;
 }
 
